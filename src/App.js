@@ -7,13 +7,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
         <p className="App-intro">
-          Hello Bobby <code>src/App.js</code> and save to reload.
+          Hello my name is Bobby Tu, and I am a second year student at the University
+          of Waterloo
         </p>
+        <p> Here is my basic calculator </p>
         <Calculator></Calculator>
       </div>
     );

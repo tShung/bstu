@@ -33,25 +33,21 @@ class Calculator extends Component {
   }
 
   render() {
+    var rows = [];
+    for (var i=1; i < 10; i += 3) {
+        rows.push(
+          <tr>
+            <button onClick={() => {this.numberClicked(i)}}>{i}</button>
+            <button onClick={() => {this.numberClicked(i + 1)}}>{i + 1}</button>
+            <button onClick={() => {this.numberClicked(i + 2)}}>{i + 2}</button>
+          </tr>
+        );
+    }
     return (
       <div className="Calculator">
         <p>Calculator</p>
         <table className="Calculator-Panel">
-          <tr>
-            <button onClick={() => {this.numberClicked(1)}}>1</button>
-            <button onClick={() => {this.numberClicked(2)}}>2</button>
-            <button onClick={() => {this.numberClicked(3)}}>3</button>
-          </tr>
-          <tr>
-            <button onClick={() => {this.numberClicked(4)}}>4</button>
-            <button onClick={() => {this.numberClicked(5)}}>5</button>
-            <button onClick={() => {this.numberClicked(6)}}>6</button>
-          </tr>
-          <tr>
-            <button onClick={() => {this.numberClicked(7)}}>7</button>
-            <button onClick={() => {this.numberClicked(8)}}>8</button>
-            <button onClick={() => {this.numberClicked(9)}}>9</button>
-          </tr>
+          {rows}
           <tr>
             <button onClick={() => {this.numberClicked(0)}}>0</button>
             <button onClick={this.operatorClicked}>+</button>
