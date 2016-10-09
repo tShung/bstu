@@ -40,7 +40,7 @@ class Calculator extends Component {
       (function (index, that){
         rows.push(
           <tr>
-            <button onClick={() => {that.numberClicked(index)}}>{i}</button>
+            <button onClick={() => {that.numberClicked(index)}}>{index}</button>
             <button onClick={() => {that.numberClicked(index + 1)}}>{index + 1}</button>
             <button onClick={() => {that.numberClicked(index + 2)}}>{index + 2}</button>
           </tr>
