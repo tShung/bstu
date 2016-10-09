@@ -12,6 +12,7 @@ class Calculator extends Component {
       };
       this.operatorClicked = this.operatorClicked.bind(this);
       this.equalClicked = this.equalClicked.bind(this);
+      this.numberClicked = this.numberClicked.bind(this);
   }
 
   operatorClicked() {
@@ -23,6 +24,7 @@ class Calculator extends Component {
   }
 
   numberClicked(x) {
+    console.log (x);
     if (!this.state.operatorClicked) {
       this.setState({value: x});  
     } else {
@@ -34,14 +36,16 @@ class Calculator extends Component {
 
   render() {
     var rows = [];
-    for (var i=1; i < 10; i += 3) {
+    for (var i = 1; i < 10; i += 3) {
+      (function (index, that){
         rows.push(
           <tr>
-            <button onClick={() => {this.numberClicked(i)}}>{i}</button>
-            <button onClick={() => {this.numberClicked(i + 1)}}>{i + 1}</button>
-            <button onClick={() => {this.numberClicked(i + 2)}}>{i + 2}</button>
+            <button onClick={() => {that.numberClicked(index)}}>{i}</button>
+            <button onClick={() => {that.numberClicked(index + 1)}}>{index + 1}</button>
+            <button onClick={() => {that.numberClicked(index + 2)}}>{index + 2}</button>
           </tr>
         );
+      })(i,this);
     }
     return (
       <div className="Calculator">
